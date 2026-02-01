@@ -1,59 +1,79 @@
 export interface Experiment {
   id: string;
   title: string;
-  category: "experiment" | "prototype" | "extension" | "learning";
+  category: "infrastructure" | "fullstack" | "devtools" | "learning";
   description: string;
   githubUrl: string;
+  liveUrl?: string;
+  featured?: boolean;
 }
 
 export const experiments: Experiment[] = [
+  // Infrastructure & Systems
   {
-    id: "1",
-    title: "Edge Function Router",
-    category: "prototype",
-    description: "URL pattern matching for serverless edge functions",
-    githubUrl: "https://github.com",
+    id: "oxyflow",
+    title: "OxyFlow",
+    category: "infrastructure",
+    description: "Dynamic reverse proxy with automatic service discovery, Redis caching, and Dockerode integration. Eliminates manual Docker + Nginx configuration.",
+    githubUrl: "https://github.com/priyanshu-tiwariii/OxyFlow--A-Dynamic-Reverse-Proxy",
+    featured: true,
   },
+  
+  // Full-Stack Products
   {
-    id: "2",
-    title: "Type-Safe SQL Builder",
-    category: "experiment",
-    description: "Compile-time SQL validation using TypeScript generics",
-    githubUrl: "https://github.com",
+    id: "nova-nosh",
+    title: "Nova Nosh",
+    category: "fullstack",
+    description: "Smart dining platform with authentication, Razorpay payments, email verification, and live order tracking. First complete product lifecycle experience.",
+    githubUrl: "https://github.com/impriyanshu29/nova_nosh",
+    liveUrl: "https://nova-nosh.onrender.com",
+    featured: true,
   },
+  
+  // Developer Tools
   {
-    id: "3",
-    title: "React State Machine",
+    id: "turbovent",
+    title: "TurboVent",
+    category: "devtools",
+    description: "Pre-configured monorepo starter with Next.js, Express, Tailwind, TypeScript, and Turborepo. Designed to eliminate setup friction.",
+    githubUrl: "https://github.com/priyanshu-tiwariii/TurboVent--Grow-Your-Code-Not-Your-Headaches",
+    featured: true,
+  },
+  
+  // Learning & Utilities
+  {
+    id: "backend-utils",
+    title: "Backend Utilities",
     category: "learning",
-    description: "XState integration patterns for complex UI flows",
-    githubUrl: "https://github.com",
+    description: "Collection of backend patterns: rate limiting, caching strategies, queue implementations.",
+    githubUrl: "https://github.com/priyanshu-tiwariii",
   },
   {
-    id: "4",
-    title: "CLI Dashboard",
-    category: "prototype",
-    description: "Terminal UI for monitoring distributed systems",
-    githubUrl: "https://github.com",
+    id: "ui-practice",
+    title: "UI Component Practice",
+    category: "learning",
+    description: "React component experiments: animations, accessibility patterns, responsive layouts.",
+    githubUrl: "https://github.com/priyanshu-tiwariii",
   },
   {
-    id: "5",
-    title: "WebGL Particle System",
-    category: "experiment",
-    description: "GPU-accelerated particle effects for data visualization",
-    githubUrl: "https://github.com",
-  },
-  {
-    id: "6",
-    title: "GraphQL Code Generator",
-    category: "extension",
-    description: "Custom directives for generating TypeScript interfaces",
-    githubUrl: "https://github.com",
+    id: "automation-scripts",
+    title: "Automation Scripts",
+    category: "learning",
+    description: "Developer workflow automation: deployment scripts, environment setup, CI/CD helpers.",
+    githubUrl: "https://github.com/priyanshu-tiwariii",
   },
 ];
 
 export const categoryLabels: Record<Experiment["category"], string> = {
-  experiment: "Experiment",
-  prototype: "Prototype",
-  extension: "Extension",
+  infrastructure: "Infrastructure",
+  fullstack: "Full-Stack",
+  devtools: "Dev Tools",
   learning: "Learning",
+};
+
+export const categoryDescriptions: Record<Experiment["category"], string> = {
+  infrastructure: "Systems that handle routing, scaling, and automation",
+  fullstack: "Complete products with frontend, backend, and deployment",
+  devtools: "Tools that improve developer workflow and productivity",
+  learning: "Experiments for learning new patterns and technologies",
 };

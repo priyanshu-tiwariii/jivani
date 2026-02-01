@@ -1,69 +1,64 @@
 import { motion } from "framer-motion";
 
-const thinkingFramework = [
+const thinkingApproach = [
   {
-    title: "Idea Validation",
-    description: "Start with the problem, not the solution. I talk to users, map pain points, and validate demand before writing code.",
+    title: "Start with Reproduction",
+    description: "When something breaks, I reproduce it first. Then trace execution flow step by step. Console logs first, then call stack tracing. Understanding the flow reveals the flaw.",
   },
   {
-    title: "MVP Scoping",
-    description: "Cut ruthlessly to core value. If a feature doesn't directly solve the primary pain point, it waits for v2.",
+    title: "Systems Before Features",
+    description: "Features are temporary. Systems remain. I ask: What happens when two users act at once? What if this service crashes? What if state desynchronizes? I design for edge cases early.",
   },
   {
-    title: "Feature Prioritization",
-    description: "Impact vs. effort matrix, weighted by reversibility. Easy-to-change decisions ship fast; hard-to-reverse decisions get more deliberation.",
+    title: "Clarity Before Optimization",
+    description: "I prefer clear architecture over premature performance tuning. Working systems can be optimized. Confusing systems collapse under growth.",
   },
   {
-    title: "API Design",
-    description: "Design for the caller, not the implementer. Consistent naming, predictable behavior, and helpful error messages.",
+    title: "Structured Debugging",
+    description: "Console logs are not random. I isolate layers: UI, State, API, Database. Then narrow the fault. It is a process of elimination.",
   },
   {
-    title: "Scaling Approach",
-    description: "Optimize for the problem you have, not the problem you might have. Measure first, scale second.",
-  },
-  {
-    title: "Iteration Mindset",
-    description: "Ship, learn, adapt. Every release is a hypothesis. Data informs the next version.",
+    title: "Ship, Reflect, Improve",
+    description: "I do not aim for perfect architecture in version one. I aim for working architecture that can evolve. Iteration is part of design.",
   },
 ];
 
 const HowIThink = () => {
   return (
-    <section className="py-section bg-card/30">
+    <section className="py-16 sm:py-20 lg:py-24 bg-card/20">
       <div className="section-container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-8 sm:mb-10"
         >
-          <h2 className="text-headline font-heading font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-foreground mb-3">
             How I Think
           </h2>
-          <p className="text-text-secondary text-body-lg max-w-2xl">
-            Product decisions follow patterns. Here's the framework I use to move 
-            from idea to shipped feature.
+          <p className="text-text-secondary text-sm sm:text-base max-w-2xl">
+            My approach to building and debugging software systems.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {thinkingFramework.map((item, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {thinkingApproach.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="p-6 rounded-lg bg-background border border-border hover:border-primary/20 transition-colors duration-300"
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="p-4 rounded-lg bg-background border border-border"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary font-mono text-sm font-bold">
-                  {String(index + 1).padStart(2, "0")}
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center text-primary font-mono text-xs">
+                  {index + 1}
                 </span>
-                <h3 className="font-bold text-foreground">{item.title}</h3>
+                <h3 className="font-medium text-foreground text-sm">{item.title}</h3>
               </div>
-              <p className="text-text-secondary text-sm leading-relaxed">
+              <p className="text-text-secondary text-xs sm:text-sm leading-relaxed">
                 {item.description}
               </p>
             </motion.div>

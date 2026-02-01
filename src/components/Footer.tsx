@@ -1,58 +1,58 @@
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 const Footer = () => {
+  const links = [
+    { href: "https://github.com/priyanshu-tiwariii", label: "GitHub" },
+    { href: "https://www.linkedin.com/in/priyanshu-tiwarii", label: "LinkedIn" },
+    { href: "https://leetcode.com/u/priyanshu-tiwarii/", label: "LeetCode" },
+    { href: "mailto:priyanshu-tiwari@hotmail.com", label: "Email" },
+  ];
+
   return (
-    <footer className="py-16 border-t border-border">
+    <footer className="py-12 sm:py-16 border-t border-border/60">
       <div className="section-container">
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid sm:grid-cols-2 gap-8">
           <div>
-            <h3 className="font-bold text-foreground mb-4">Let's Connect</h3>
-            <p className="text-text-secondary text-sm mb-6 max-w-md">
-              Building something interesting? I'm always open to discussing product engineering, 
-              system design, or collaboration opportunities.
+            <h3 className="font-semibold text-foreground mb-3 text-sm">Let's Build Something</h3>
+            <p className="text-text-secondary text-sm mb-5 max-w-sm leading-relaxed">
+              If you're building something meaningful, I'd love to contribute. 
+              Open to software engineering opportunities and interesting collaborations.
             </p>
             
-            <div className="flex gap-4">
-              {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
-              ].map(({ icon: Icon, href, label }) => (
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              {links.map(({ href, label }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-md bg-secondary flex items-center justify-center text-text-muted hover:text-primary hover:bg-muted transition-colors duration-300"
-                  aria-label={label}
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  className="text-sm text-text-muted hover:text-primary transition-colors duration-200 flex items-center gap-1"
                 >
-                  <Icon className="w-5 h-5" />
+                  {label}
+                  {!href.startsWith("mailto:") && <ExternalLink className="w-3 h-3" />}
                 </a>
               ))}
             </div>
           </div>
           
-          <div className="md:text-right">
-            <h4 className="text-sm font-mono text-text-muted uppercase tracking-wider mb-4">
-              Technical Specs
+          <div className="sm:text-right">
+            <h4 className="text-xs font-mono text-text-muted uppercase tracking-wide mb-3">
+              Built With
             </h4>
-            <ul className="space-y-2 text-sm text-text-secondary">
-              <li>Built with React + TypeScript</li>
-              <li>Styled with Tailwind CSS</li>
-              <li>Animated with Framer Motion</li>
-              <li>Optimized for performance</li>
-              <li>Deployed globally on edge</li>
+            <ul className="space-y-1 text-sm text-text-secondary">
+              <li>React + TypeScript</li>
+              <li>Tailwind CSS</li>
+              <li>Framer Motion</li>
             </ul>
           </div>
         </div>
         
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-text-muted text-sm">
-            © {new Date().getFullYear()} Product Builder Studio
+        <div className="mt-10 pt-6 border-t border-border/40 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <p className="text-text-muted text-xs sm:text-sm">
+            Jivani {new Date().getFullYear()}
           </p>
-          <p className="text-text-muted text-sm font-mono">
-            Engineered with intention
+          <p className="text-text-muted text-xs sm:text-sm font-mono">
+            Building software that ships
           </p>
         </div>
       </div>

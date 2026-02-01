@@ -3,7 +3,8 @@ export interface TimelinePhase {
   phase: number;
   title: string;
   period: string;
-  mindset: string;
+  focus: string;
+  struggle: string;
   shift: string;
   lessons: string[];
   projects: string[];
@@ -11,59 +12,63 @@ export interface TimelinePhase {
 
 export const timelinePhases: TimelinePhase[] = [
   {
-    id: "exploration",
+    id: "curiosity",
     phase: 1,
-    title: "Exploration",
-    period: "2019 - 2020",
-    mindset: "Learn everything. Build anything. Break things constantly.",
-    shift: "Moved from tutorial hell to building real projects. Learned that shipping beats perfection.",
+    title: "Curiosity",
+    period: "Class 7 - Class 12",
+    focus: "Java fundamentals through school curriculum. Understanding basic programming logic, loops, conditionals, and object-oriented concepts.",
+    struggle: "Abstract concepts without real-world application. Writing code that compiled but didn't connect to anything tangible.",
+    shift: "Realized programming is more than syntax—it's problem decomposition. Started seeing patterns in how solutions are structured.",
     lessons: [
-      "Version control isn't optional—it's survival",
-      "Reading docs beats guessing",
-      "Small projects teach big lessons",
+      "Syntax is temporary, logic is permanent",
+      "Debugging teaches more than tutorials",
+      "Consistency beats intensity in learning",
     ],
-    projects: ["CLI tools", "Static sites", "API integrations"],
+    projects: ["School assignments", "Basic algorithms", "Console applications"],
   },
   {
-    id: "expansion",
+    id: "web-exploration",
     phase: 2,
-    title: "Skill Expansion",
-    period: "2020 - 2021",
-    mindset: "Go deep before going wide. Master fundamentals.",
-    shift: "Stopped chasing every new framework. Focused on understanding systems, not just syntax.",
+    title: "Web Exploration",
+    period: "2022 - Early 2024",
+    focus: "Understanding how websites work. HTML, CSS, JavaScript. Building static sites and trying to figure out deployment.",
+    struggle: "Deployment was a black box. Built things locally but couldn't understand how websites actually run in production. DNS, hosting, servers—all felt disconnected.",
+    shift: "Stopped treating deployment as magic. Started understanding the request-response cycle, how browsers fetch resources, and where code actually lives.",
     lessons: [
-      "Database design shapes application architecture",
-      "Performance is a feature, not an afterthought",
-      "Testing saves more time than it costs",
+      "Building locally is not shipping",
+      "The network is part of your application",
+      "Understanding infrastructure prevents debugging nightmares",
     ],
-    projects: ["Full-stack apps", "Database migrations", "CI/CD pipelines"],
+    projects: ["Static websites", "Portfolio attempts", "Local experiments"],
   },
   {
-    id: "product-thinking",
+    id: "builder-mode",
     phase: 3,
-    title: "Product Thinking",
-    period: "2021 - 2023",
-    mindset: "Code is a means to an end. Users define success.",
-    shift: "Started asking 'why build this?' before 'how to build this?'. Features serve outcomes.",
+    title: "Builder Mode",
+    period: "2024",
+    focus: "First serious full-stack product: Nova Nosh. Complete ownership from authentication to payment integration to deployment.",
+    struggle: "Managing complexity across the stack. Authentication flows, database design, payment integration, email verification—each piece introduced new failure modes.",
+    shift: "Moved from 'learning to code' to 'building products'. Started thinking about user flows, error handling, and what happens when things break in production.",
     lessons: [
-      "The best code is code you don't write",
-      "User feedback > personal preferences",
-      "Iteration beats big launches",
+      "Full-stack ownership exposes every gap in knowledge",
+      "Deployment is where learning becomes real",
+      "Production bugs teach more than any course",
     ],
-    projects: ["SaaS products", "Developer tools", "Internal platforms"],
+    projects: ["Nova Nosh", "Full-stack authentication", "Payment integration"],
   },
   {
-    id: "strategic-builder",
+    id: "systems-thinking",
     phase: 4,
-    title: "Strategic Builder",
-    period: "2023 - Present",
-    mindset: "Build for scale, design for change, ship with confidence.",
-    shift: "Thinking in systems and trade-offs. Every decision has downstream consequences.",
+    title: "Systems Thinking",
+    period: "2024 - Present",
+    focus: "Architecture and scalability. Real-time systems, microservices, distributed communication patterns. Smart India Hackathon 2024 shifted focus from features to large-scale problem solving.",
+    struggle: "Thinking beyond single-server mentality. Understanding when to split services, how to handle real-time state synchronization, and where bottlenecks emerge under load.",
+    shift: "Started designing before coding. Every decision now considers downstream consequences—message queues, connection limits, failure recovery, horizontal scaling.",
     lessons: [
-      "Architecture is about managing change",
-      "Constraints enable creativity",
-      "Documentation is a product",
+      "Architecture decisions are hard to reverse",
+      "Real-time systems require different mental models",
+      "Constraints at scale reveal design flaws early",
     ],
-    projects: ["Platform engineering", "System design", "Technical leadership"],
+    projects: ["Chitran", "Notification System", "OxyFlow", "Ekagra"],
   },
 ];

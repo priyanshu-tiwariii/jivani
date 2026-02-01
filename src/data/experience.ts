@@ -1,11 +1,15 @@
 export interface CurrentRole {
   company: string;
   role: string;
+  type: string;
   positioning: string;
   ownership: string;
   technologies: string[];
-  scale: string[];
-  impact: string[];
+  featuresBuilt: {
+    name: string;
+    description: string;
+  }[];
+  keyLearning: string;
 }
 
 export interface ExperienceEntry {
@@ -13,8 +17,10 @@ export interface ExperienceEntry {
   company: string;
   role: string;
   duration: string;
+  type: string;
   impactContribution: string;
   engineeringResponsibility: string;
+  highlights?: string[];
 }
 
 export interface Achievement {
@@ -23,6 +29,12 @@ export interface Achievement {
   context: string;
   demonstrates: string;
   category: "award" | "hackathon" | "certification" | "open-source" | "leadership" | "community" | "publication" | "milestone";
+  details?: {
+    role?: string;
+    technologies?: string[];
+    challenges?: string[];
+    outcome?: string;
+  };
 }
 
 export interface ImpactMetric {
@@ -32,100 +44,85 @@ export interface ImpactMetric {
 }
 
 export const currentRole: CurrentRole = {
-  company: "TechScale Inc.",
-  role: "Senior Product Engineer",
-  positioning: "Building scalable product systems that power enterprise collaboration",
-  ownership: "Own end-to-end architecture and delivery of the real-time collaboration platform, from system design through production deployment and performance optimization.",
-  technologies: ["TypeScript", "React", "Node.js", "PostgreSQL", "Redis", "Kubernetes", "AWS"],
-  scale: [
-    "50K+ daily active users",
-    "2M+ API requests/day",
-    "99.9% uptime SLA",
+  company: "CRUV",
+  role: "SDE Intern",
+  type: "Startup | Remote",
+  positioning: "Building production-ready features in a fast-paced startup environment where shipping correctly matters",
+  ownership: "Contributing directly to production-facing features that go through senior review and deployment. Working on frontend engineering with focus on translating product requirements into scalable UI components.",
+  technologies: ["React", "TypeScript", "Next.js", "Zustand", "TanStack Router", "REST APIs"],
+  featuresBuilt: [
+    {
+      name: "Endorsement Feature",
+      description: "Complete user endorsement flow with validation and state management"
+    },
+    {
+      name: "Insurance Documentation Module",
+      description: "Document handling system with form validation and API integration"
+    },
+    {
+      name: "Contact Feature",
+      description: "Production-ready contact functionality for the main website"
+    }
   ],
-  impact: [
-    "Reduced page load time by 60% through strategic caching and code splitting",
-    "Architected event-driven system handling 10K concurrent WebSocket connections",
-    "Led migration from monolith to microservices, cutting deployment time from 2 hours to 8 minutes",
-  ],
+  keyLearning: "Frontend issues are often architectural, not visual. Identified and fixed a critical bug where content was not loading due to improper root-level navigation handling, requiring deep trace of routing state and refactoring."
 };
 
 export const experienceTimeline: ExperienceEntry[] = [
   {
-    id: "techscale",
-    company: "TechScale Inc.",
-    role: "Senior Product Engineer",
-    duration: "2023 – Present",
-    impactContribution: "Architected collaboration engine now used by 200+ enterprise teams, directly contributing to 40% revenue growth",
-    engineeringResponsibility: "Technical decision-making for frontend architecture, performance optimization, and developer experience",
-  },
-  {
-    id: "dataflow",
-    company: "DataFlow Systems",
-    role: "Full-Stack Engineer",
-    duration: "2021 – 2023",
-    impactContribution: "Built analytics dashboard that reduced customer churn analysis time from 3 days to 15 minutes",
-    engineeringResponsibility: "Owned data visualization layer and API design for customer-facing reporting tools",
-  },
-  {
-    id: "startupx",
-    company: "StartupX",
-    role: "Software Engineer",
-    duration: "2019 – 2021",
-    impactContribution: "Shipped MVP in 6 weeks that acquired first 1,000 users and secured seed funding",
-    engineeringResponsibility: "Full-stack development with focus on rapid iteration and user feedback integration",
-  },
+    id: "cruv",
+    company: "CRUV",
+    role: "SDE Intern",
+    duration: "Nov 2025 - Present",
+    type: "Startup | Remote",
+    impactContribution: "Shipped 3 production features reviewed and deployed by senior engineers, including critical bug fixes in routing architecture",
+    engineeringResponsibility: "Frontend development with focus on component architecture, API integration, form validation, and responsive design",
+    highlights: [
+      "Endorsement feature with complete user flow",
+      "Insurance documentation module",
+      "Critical navigation bug fix at root level"
+    ]
+  }
 ];
 
 export const achievements: Achievement[] = [
   {
-    id: "hackathon-winner",
-    title: "1st Place – Global Hackathon 2023",
-    context: "Built an AI-powered accessibility tool in 48 hours competing against 500+ teams",
-    demonstrates: "Rapid prototyping, product thinking under pressure",
+    id: "sih-winner",
+    title: "National Winner - Smart India Hackathon 2024",
+    context: "Built 'Postie' - a digital transparency and tracking system for Department of Posts, solving real visibility and reporting challenges",
+    demonstrates: "Building under pressure, system-level problem solving, team coordination",
     category: "hackathon",
-  },
-  {
-    id: "aws-certified",
-    title: "AWS Solutions Architect – Professional",
-    context: "Validated expertise in designing distributed systems on cloud infrastructure",
-    demonstrates: "Deep understanding of scalable architecture patterns",
-    category: "certification",
-  },
-  {
-    id: "open-source",
-    title: "Core Contributor – React Query",
-    context: "Contributed performance optimizations merged into v4, affecting millions of developers",
-    demonstrates: "Open-source leadership, community impact",
-    category: "open-source",
-  },
-  {
-    id: "tech-lead",
-    title: "Engineering Team Lead",
-    context: "Led 5-person team delivering critical infrastructure migration on schedule",
-    demonstrates: "Technical leadership, cross-functional coordination",
-    category: "leadership",
-  },
-  {
-    id: "tech-talk",
-    title: "Speaker – ReactConf 2023",
-    context: "Presented on real-time collaboration patterns to 800+ attendees",
-    demonstrates: "Technical communication, thought leadership",
-    category: "community",
-  },
-  {
-    id: "blog-impact",
-    title: "Technical Blog – 50K+ Readers",
-    context: "Published deep-dives on system design adopted by engineering teams globally",
-    demonstrates: "Knowledge sharing, technical writing",
-    category: "publication",
-  },
+    details: {
+      role: "Lead React Native / Next.js Developer",
+      technologies: ["React Native", "Next.js", "Redux Toolkit", "MapmyIndia APIs"],
+      challenges: [
+        "Backend services crashed under load during finale",
+        "UI bugs surfaced during live integration",
+        "AI components required retraining under time pressure",
+        "Rebuilt APIs and patched UI issues live"
+      ],
+      outcome: "National-level competition win validating ability to build, adapt, and deliver under real constraints"
+    }
+  }
 ];
 
 export const impactMetrics: ImpactMetric[] = [
-  { value: "60%", label: "Performance Improvement", context: "Page load optimization" },
-  { value: "50K+", label: "Users Impacted", context: "Daily active users" },
-  { value: "15+", label: "Features Shipped", context: "Production releases" },
-  { value: "99.9%", label: "Uptime Maintained", context: "SLA compliance" },
-  { value: "8min", label: "Deploy Time", context: "Down from 2 hours" },
-  { value: "3", label: "Systems Architected", context: "From scratch to scale" },
+  { value: "3", label: "Production Features", context: "Shipped and deployed" },
+  { value: "1", label: "Critical Bug Fixed", context: "Root navigation issue" },
+  { value: "36hrs", label: "Hackathon Finale", context: "Live debugging" },
+  { value: "National", label: "SIH Winner", context: "Smart India Hackathon" }
+];
+
+// What these milestones represent
+export const milestoneProgression = [
+  "Learning how to code",
+  "Building systems for users", 
+  "Shipping features in real environments"
+];
+
+export const demonstratedSkills = [
+  "Comfort with production environments",
+  "Understanding of frontend architecture decisions",
+  "Real-world debugging capability",
+  "Ownership over shipped features",
+  "Ability to work under constraints"
 ];

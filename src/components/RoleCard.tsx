@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Layers, Gauge } from "lucide-react";
+import { Building2, Layers, Code, Lightbulb } from "lucide-react";
 import { CurrentRole } from "@/data/experience";
 
 interface RoleCardProps {
@@ -9,53 +9,53 @@ interface RoleCardProps {
 const RoleCard = ({ role }: RoleCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="relative overflow-hidden rounded-lg border border-border bg-card p-8 lg:p-10"
+      transition={{ duration: 0.5 }}
+      className="relative overflow-hidden rounded-lg border border-border bg-card p-5 sm:p-6 lg:p-8"
     >
       {/* Subtle glow effect */}
-      <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
       
       <div className="relative">
         {/* Header */}
-        <div className="flex items-start gap-4 mb-6">
-          <div className="p-3 rounded-lg bg-primary/10">
-            <Building2 className="w-6 h-6 text-primary" />
+        <div className="flex items-start gap-3 mb-5">
+          <div className="p-2.5 rounded-lg bg-primary/10 shrink-0">
+            <Building2 className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <p className="text-sm font-mono text-primary uppercase tracking-wider mb-1">
+            <p className="text-xs font-mono text-primary uppercase tracking-wide mb-0.5">
               Currently Building At
             </p>
-            <h3 className="text-title font-bold text-foreground">{role.company}</h3>
-            <p className="text-text-secondary">{role.role}</p>
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground">{role.company}</h3>
+            <p className="text-text-secondary text-sm">{role.role} | {role.type}</p>
           </div>
         </div>
 
         {/* Positioning Statement */}
-        <p className="text-body-lg text-foreground font-medium mb-6">
+        <p className="text-sm sm:text-base text-foreground font-medium mb-4">
           {role.positioning}
         </p>
 
         {/* Ownership Description */}
-        <p className="text-text-secondary leading-relaxed mb-8">
+        <p className="text-text-secondary leading-relaxed mb-6 text-sm sm:text-base">
           {role.ownership}
         </p>
 
         {/* Technologies */}
-        <div className="mb-8">
-          <div className="flex items-center gap-2 mb-3">
-            <Layers className="w-4 h-4 text-text-muted" />
-            <span className="text-sm font-mono text-text-muted uppercase tracking-wider">
-              Production Stack
+        <div className="mb-6">
+          <div className="flex items-center gap-1.5 mb-2">
+            <Layers className="w-3.5 h-3.5 text-text-muted" />
+            <span className="text-xs font-mono text-text-muted uppercase tracking-wide">
+              Tech Stack
             </span>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {role.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 bg-secondary rounded-md text-sm text-secondary-foreground"
+                className="px-2 py-0.5 bg-secondary rounded text-xs text-secondary-foreground"
               >
                 {tech}
               </span>
@@ -63,36 +63,35 @@ const RoleCard = ({ role }: RoleCardProps) => {
           </div>
         </div>
 
-        {/* Scale */}
-        <div className="mb-8">
-          <div className="flex items-center gap-2 mb-3">
-            <Gauge className="w-4 h-4 text-text-muted" />
-            <span className="text-sm font-mono text-text-muted uppercase tracking-wider">
-              Scale Handled
+        {/* Features Built */}
+        <div className="mb-6">
+          <div className="flex items-center gap-1.5 mb-3">
+            <Code className="w-3.5 h-3.5 text-text-muted" />
+            <span className="text-xs font-mono text-text-muted uppercase tracking-wide">
+              Features Shipped
             </span>
           </div>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {role.scale.map((item, i) => (
-              <div key={i} className="text-center p-3 rounded-lg bg-secondary/50">
-                <span className="text-foreground font-medium">{item}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            {role.featuresBuilt.map((feature) => (
+              <div key={feature.name} className="p-3 rounded-lg bg-secondary/40 border border-border/50">
+                <span className="text-foreground text-sm font-medium block mb-1">{feature.name}</span>
+                <span className="text-text-muted text-xs">{feature.description}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Impact Statements */}
+        {/* Key Learning */}
         <div>
-          <h4 className="text-sm font-mono text-text-muted uppercase tracking-wider mb-4">
-            Measurable Impact
-          </h4>
-          <ul className="space-y-3">
-            {role.impact.map((statement, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="text-primary mt-1 font-bold">→</span>
-                <span className="text-text-secondary">{statement}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="flex items-center gap-1.5 mb-2">
+            <Lightbulb className="w-3.5 h-3.5 text-text-muted" />
+            <span className="text-xs font-mono text-text-muted uppercase tracking-wide">
+              Key Learning
+            </span>
+          </div>
+          <p className="text-text-secondary text-sm leading-relaxed italic border-l-2 border-primary/20 pl-3">
+            {role.keyLearning}
+          </p>
         </div>
       </div>
     </motion.div>

@@ -7,61 +7,60 @@ interface ExperienceTimelineProps {
 
 const ExperienceTimeline = ({ entries }: ExperienceTimelineProps) => {
   return (
-    <div className="relative">
-      {/* Vertical line */}
-      <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
+    <div className="space-y-4">
+      {entries.map((entry, index) => (
+        <motion.div
+          key={entry.id}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: index * 0.08 }}
+          className="relative p-4 sm:p-5 rounded-lg border border-border bg-card"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+            <div>
+              <h4 className="text-base font-semibold text-foreground">{entry.company}</h4>
+              <p className="text-primary font-medium text-sm">{entry.role}</p>
+            </div>
+            <div className="text-left sm:text-right">
+              <p className="text-xs font-mono text-text-muted">{entry.duration}</p>
+              <p className="text-xs text-text-muted">{entry.type}</p>
+            </div>
+          </div>
 
-      <div className="space-y-12">
-        {entries.map((entry, index) => (
-          <motion.div
-            key={entry.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`relative grid md:grid-cols-2 gap-8 ${
-              index % 2 === 0 ? "md:text-right" : ""
-            }`}
-          >
-            {/* Timeline dot */}
-            <div className="absolute left-0 md:left-1/2 w-3 h-3 bg-primary rounded-full md:-translate-x-1/2 -translate-x-1/2 top-2" />
-
-            {/* Content - alternating sides on desktop */}
-            <div
-              className={`pl-8 md:pl-0 ${
-                index % 2 === 0 ? "md:pr-12" : "md:col-start-2 md:pl-12"
-              }`}
-            >
-              <div className="space-y-3">
-                <div>
-                  <h4 className="text-lg font-bold text-foreground">{entry.company}</h4>
-                  <p className="text-primary font-medium">{entry.role}</p>
-                  <p className="text-sm font-mono text-text-muted">{entry.duration}</p>
-                </div>
-
-                <div className="space-y-2">
-                  <div>
-                    <span className="text-xs font-mono text-text-muted uppercase tracking-wider">
-                      Impact
-                    </span>
-                    <p className="text-text-secondary mt-1">{entry.impactContribution}</p>
-                  </div>
-
-                  <div>
-                    <span className="text-xs font-mono text-text-muted uppercase tracking-wider">
-                      Ownership
-                    </span>
-                    <p className="text-text-secondary mt-1">{entry.engineeringResponsibility}</p>
-                  </div>
-                </div>
-              </div>
+          <div className="space-y-3">
+            <div>
+              <span className="text-xs font-mono text-text-muted uppercase tracking-wide">
+                Impact
+              </span>
+              <p className="text-text-secondary text-sm mt-0.5">{entry.impactContribution}</p>
             </div>
 
-            {/* Empty column for layout on desktop */}
-            {index % 2 === 0 && <div className="hidden md:block" />}
-          </motion.div>
-        ))}
-      </div>
+            <div>
+              <span className="text-xs font-mono text-text-muted uppercase tracking-wide">
+                Ownership
+              </span>
+              <p className="text-text-secondary text-sm mt-0.5">{entry.engineeringResponsibility}</p>
+            </div>
+
+            {entry.highlights && entry.highlights.length > 0 && (
+              <div>
+                <span className="text-xs font-mono text-text-muted uppercase tracking-wide">
+                  Highlights
+                </span>
+                <ul className="mt-1.5 space-y-1">
+                  {entry.highlights.map((highlight) => (
+                    <li key={highlight} className="flex items-start gap-2 text-sm text-text-secondary">
+                      <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 };

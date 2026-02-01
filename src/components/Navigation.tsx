@@ -8,7 +8,7 @@ const Navigation = () => {
 
   const links = [
     { href: "#products", label: "Products" },
-    { href: "#", label: "About" },
+    { href: "#impact", label: "Impact" },
     { href: "https://github.com", label: "GitHub", external: true },
   ];
 

@@ -53,7 +53,7 @@ const ArchitectureDiagram = ({ product }: ArchitectureDiagramProps) => {
       
       {/* Deployment info */}
       <div className="mt-8 pt-6 border-t border-border flex items-center justify-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse-subtle" />
+        <span className="w-2 h-2 rounded-full bg-primary animate-pulse-subtle" />
         <span className="text-xs text-text-muted font-mono">
           Deployed: {product.architecture.deployment.split(",")[0]}
         </span>

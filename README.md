@@ -46,12 +46,11 @@ Portfolio platform showcasing Priyanshu Tiwari’s end-to-end product engineerin
 ## Getting Started
 
 ```bash
-pnpm install     # or npm/yarn
-pnpm lint        # static analysis & type safety
-pnpm test        # vitest unit checks for data + utilities
-pnpm dev         # next dev with App Router
-pnpm build       # production build (analyze + lint enforced)
-pnpm start       # run compiled output locally
+bun install     # or npm/yarn
+bun lint        # static analysis & type safety
+bun dev         # next dev with App Router
+bun build       # production build (analyze + lint enforced)
+bun start       # run compiled output locally
 ```
 
 ### Required Environment

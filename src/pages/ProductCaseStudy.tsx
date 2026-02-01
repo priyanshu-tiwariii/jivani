@@ -196,7 +196,7 @@ const ProductCaseStudy = () => {
                 <ul className="space-y-3">
                   {product.engineering.tradeoffs.map((item, i) => (
                     <li key={i} className="text-text-secondary text-sm leading-relaxed">
-                      <span className="text-yellow-400 mr-2">⚖</span>
+                      <span className="text-primary/70 mr-2">⚖</span>
                       {item}
                     </li>
                   ))}
@@ -224,7 +224,7 @@ const ProductCaseStudy = () => {
                 <ul className="space-y-3">
                   {product.engineering.security.map((item, i) => (
                     <li key={i} className="text-text-secondary text-sm leading-relaxed">
-                      <span className="text-green-400 mr-2">🔒</span>
+                      <span className="text-primary/80 mr-2">🔒</span>
                       {item}
                     </li>
                   ))}

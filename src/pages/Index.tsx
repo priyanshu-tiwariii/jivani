@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import ImpactMilestones from "@/components/ImpactMilestones";
 import Timeline from "@/components/Timeline";
 import HowIThink from "@/components/HowIThink";
 import DecisionLog from "@/components/DecisionLog";
@@ -15,6 +16,7 @@ const Index = () => {
       <main className="pt-16">
         <Hero />
         <FeaturedProducts />
+        <ImpactMilestones />
         <Timeline />
         <HowIThink />
         <DecisionLog />

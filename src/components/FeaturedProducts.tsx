@@ -30,12 +30,13 @@ const FeaturedProducts = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
+              whileHover={{ y: -2 }}
             >
               <Link
                 to={`/products/${product.slug}`}
                 className="block group"
               >
-                <article className="p-5 sm:p-6 lg:p-8 rounded-lg bg-card border border-border hover:border-primary/25 transition-all duration-200">
+                <article className="relative overflow-hidden p-5 sm:p-6 lg:p-8 rounded-2xl bg-card border border-border/80 hover:border-primary/35 transition-all duration-300 shadow-[0_14px_30px_-30px_hsl(var(--foreground)/0.7)]">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-3">
@@ -71,7 +72,7 @@ const FeaturedProducts = () => {
                   </div>
                   
                   {/* Tech stack preview */}
-                  <div className="mt-5 pt-4 border-t border-border/60">
+                  <div className="mt-5 pt-4 border-t border-border/55">
                     <div className="flex flex-wrap gap-1.5">
                       {[...product.architecture.frontend.slice(0, 2), ...product.architecture.backend.slice(0, 2)].map((tech) => (
                         <span key={tech} className="px-2 py-0.5 bg-secondary/80 rounded text-xs font-mono text-secondary-foreground">

@@ -71,4 +71,19 @@ export const timelinePhases: TimelinePhase[] = [
     ],
     projects: ["Chitran", "Notification System", "OxyFlow", "Ekagra"],
   },
+  {
+    id: "corporate-transition",
+    phase: 5,
+    title: "Corporate Execution",
+    period: "2026 - Present",
+    focus: "Entered enterprise engineering at Nagarro and started shipping full-stack work across .NET services, React interfaces, and Azure-based delivery pipelines.",
+    struggle: "The biggest shift was not coding difficulty; it was operating inside real release cycles. Understanding ticket handoff quality, QA expectations, branch discipline, and dependency coordination across teams took deliberate effort.",
+    shift: "Moved from solo builder mode to accountable team delivery. I now write for maintainability, document implementation decisions, and validate edge cases before review because downstream teams depend on that quality.",
+    lessons: [
+      "A clean handoff note can save hours for QA and support",
+      "Observability and logs beat assumptions during incident triage",
+      "Corporate velocity comes from reliability plus communication",
+    ],
+    projects: ["Nagarro enterprise modules", ".NET APIs", "React dashboards", "Azure deployments"],
+  },
 ];

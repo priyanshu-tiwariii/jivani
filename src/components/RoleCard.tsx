@@ -13,10 +13,10 @@ const RoleCard = ({ role }: RoleCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="relative overflow-hidden rounded-lg border border-border bg-card p-5 sm:p-6 lg:p-8"
+      className="relative overflow-hidden rounded-2xl border border-border/80 bg-card p-5 sm:p-6 lg:p-8 shadow-[0_18px_36px_-34px_hsl(var(--foreground)/0.7)]"
     >
       {/* Subtle glow effect */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute -top-24 -right-24 w-44 h-44 bg-primary/8 rounded-full blur-3xl" />
       
       <div className="relative">
         {/* Header */}
@@ -71,9 +71,9 @@ const RoleCard = ({ role }: RoleCardProps) => {
               Features Shipped
             </span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {role.featuresBuilt.map((feature) => (
-              <div key={feature.name} className="p-3 rounded-lg bg-secondary/40 border border-border/50">
+              <div key={feature.name} className="p-3 rounded-lg bg-secondary/35 border border-border/45">
                 <span className="text-foreground text-sm font-medium block mb-1">{feature.name}</span>
                 <span className="text-text-muted text-xs">{feature.description}</span>
               </div>

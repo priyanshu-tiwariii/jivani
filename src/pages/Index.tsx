@@ -6,14 +6,13 @@ import Timeline from "@/components/Timeline";
 import HowIThink from "@/components/HowIThink";
 import DecisionLog from "@/components/DecisionLog";
 import ExperimentsArchive from "@/components/ExperimentsArchive";
-import BuildingNext from "@/components/BuildingNext";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background page-atmosphere overflow-x-hidden">
       <Navigation />
-      <main className="pt-14 sm:pt-16">
+      <main className="pt-14 sm:pt-16 relative z-10">
         <Hero />
         <FeaturedProducts />
         <ImpactMilestones />
@@ -21,7 +20,6 @@ const Index = () => {
         <HowIThink />
         <DecisionLog />
         <ExperimentsArchive />
-        <BuildingNext />
       </main>
       <Footer />
     </div>

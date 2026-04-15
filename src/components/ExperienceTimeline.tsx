@@ -7,16 +7,19 @@ interface ExperienceTimelineProps {
 
 const ExperienceTimeline = ({ entries }: ExperienceTimelineProps) => {
   return (
-    <div className="space-y-4">
+    <div className="relative space-y-4 pl-6 sm:pl-8">
+      <div className="absolute left-[8px] sm:left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-primary/25 to-transparent" />
       {entries.map((entry, index) => (
         <motion.div
           key={entry.id}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 16, x: 8 }}
+          whileInView={{ opacity: 1, y: 0, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: index * 0.08 }}
-          className="relative p-4 sm:p-5 rounded-lg border border-border bg-card"
+          transition={{ duration: 0.4, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className="relative p-4 sm:p-5 rounded-xl border border-border/70 bg-gradient-to-b from-card to-card/70 shadow-[0_14px_26px_-26px_hsl(var(--foreground)/0.8)]"
         >
+          <span className="absolute -left-6 sm:-left-8 top-6 h-3 w-3 rounded-full border-2 border-primary/80 bg-background shadow-[0_0_0_4px_hsl(var(--primary)/0.15)]" />
+
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
             <div>
               <h4 className="text-base font-semibold text-foreground">{entry.company}</h4>

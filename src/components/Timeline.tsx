@@ -3,12 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { timelinePhases } from "@/data/timeline";
 
 const Timeline = () => {
-  const [activePhase, setActivePhase] = useState<string>(timelinePhases[3].id);
+  const [activePhase, setActivePhase] = useState<string>(
+    timelinePhases[timelinePhases.length - 1].id,
+  );
   
   const active = timelinePhases.find((p) => p.id === activePhase) || timelinePhases[0];
+  const activeIndex = timelinePhases.findIndex((p) => p.id === active.id);
+  const progress = ((activeIndex + 1) / timelinePhases.length) * 100;
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24">
+    <section id="evolution" className="py-16 sm:py-20 lg:py-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -25,20 +29,44 @@ const Timeline = () => {
         </motion.div>
 
         {/* Phase selector */}
-        <div className="flex gap-1.5 mb-6 sm:mb-8 flex-wrap">
-          {timelinePhases.map((phase) => (
-            <button
-              key={phase.id}
-              onClick={() => setActivePhase(phase.id)}
-              className={`px-2.5 py-1 rounded font-mono text-xs transition-all duration-200 ${
-                activePhase === phase.id
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-muted"
-              }`}
-            >
-              Phase {phase.phase}
-            </button>
-          ))}
+        <div className="mb-6 sm:mb-8">
+          <div className="h-px w-full bg-border/70 mb-4">
+            <motion.div
+              className="h-full bg-primary"
+              initial={{ width: 0 }}
+              animate={{ width: `${progress}%` }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            />
+          </div>
+
+          <div className="-mx-1 px-1 overflow-x-auto scrollbar-hide">
+            <div className="flex gap-1.5 w-max sm:w-auto sm:flex-wrap">
+              {timelinePhases.map((phase) => {
+                const isActive = activePhase === phase.id;
+
+                return (
+                  <button
+                    key={phase.id}
+                    onClick={() => setActivePhase(phase.id)}
+                    className={`relative px-3 py-1.5 rounded-md font-mono text-xs whitespace-nowrap transition-colors duration-200 ${
+                      isActive
+                        ? "text-primary-foreground"
+                        : "bg-secondary text-secondary-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="phase-highlight"
+                        className="absolute inset-0 rounded-md bg-primary"
+                        transition={{ type: "spring", stiffness: 340, damping: 28 }}
+                      />
+                    )}
+                    <span className="relative z-10">Phase {phase.phase}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Active phase detail */}
@@ -49,9 +77,9 @@ const Timeline = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -16 }}
             transition={{ duration: 0.3 }}
-            className="grid lg:grid-cols-2 gap-6 lg:gap-8"
+            className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start"
           >
-            <div>
+            <div className="p-4 sm:p-5 rounded-xl border border-border/70 bg-card/60">
               <div className="flex items-baseline gap-3 mb-3">
                 <span className="text-3xl sm:text-4xl font-bold text-primary/15 font-mono">
                   0{active.phase}
@@ -86,7 +114,7 @@ const Timeline = () => {
               </div>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-5 p-4 sm:p-5 rounded-xl border border-border/70 bg-card/60">
               <div>
                 <h4 className="text-xs font-mono text-text-muted uppercase tracking-wide mb-2">
                   Key Lessons

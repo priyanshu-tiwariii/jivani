@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Priyanshu Tiwari portfolio social preview">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#171a22" />
+      <stop offset="100%" stop-color="#101218" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#9f9075" />
+      <stop offset="100%" stop-color="#d6c7ac" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1040" cy="120" r="220" fill="#9f9075" fill-opacity="0.08" />
+  <circle cx="120" cy="560" r="260" fill="#5f687b" fill-opacity="0.12" />
+  <rect x="72" y="72" width="1056" height="486" rx="26" fill="none" stroke="#9f9075" stroke-opacity="0.28" />
+
+  <text x="110" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="700" fill="#f2efe8">
+    Priyanshu Tiwari
+  </text>
+  <text x="110" y="290" font-family="Segoe UI, Arial, sans-serif" font-size="33" font-weight="500" fill="url(#accent)">
+    Full-Stack Engineer .NET + React + Azure
+  </text>
+  <text x="110" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="27" fill="#d2d0ca">
+    Production-focused software delivery, system design, and real project execution
+  </text>
+  <text x="110" y="500" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#a9a7a1">
+    priyanshu-tiwari.dev
+  </text>
+</svg>

@@ -54,6 +54,7 @@ export default {
       },
       fontFamily: {
         sans: [
+          "Manrope",
           "Inter",
           "system-ui",
           "-apple-system",
@@ -62,12 +63,14 @@ export default {
           "sans-serif",
         ],
         heading: [
-          "Inter",
+          "Sora",
+          "Manrope",
           "system-ui",
           "-apple-system",
           "sans-serif",
         ],
         mono: [
+          "IBM Plex Mono",
           "JetBrains Mono",
           "Fira Code",
           "SF Mono",

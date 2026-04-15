@@ -20,10 +20,13 @@ const Navigation = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border/40"
+        className="fixed top-0 left-0 right-0 z-50 bg-background/82 backdrop-blur-md border-b border-border/70"
       >
         <nav className="section-container py-3 sm:py-4 flex items-center justify-between">
-          <Link to="/" className="font-semibold text-foreground hover:text-primary transition-colors text-sm sm:text-base">
+          <Link
+            to="/"
+            className="font-semibold tracking-wide text-foreground hover:text-primary transition-colors text-sm sm:text-base"
+          >
             Jivani
           </Link>
 
@@ -51,7 +54,7 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 -mr-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 -mr-2 text-foreground hover:text-primary transition-colors rounded-md hover:bg-secondary/70"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -64,7 +67,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border"
+            className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
           >
             <div className="section-container py-4 flex flex-col gap-3">
               {links.map((link) => (

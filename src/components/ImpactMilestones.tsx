@@ -27,7 +27,7 @@ const ImpactMilestones = () => {
             Experience
           </h2>
           <p className="text-text-secondary text-sm sm:text-base max-w-2xl leading-relaxed">
-            Building in production environments with real constraints. Each milestone represents shipped features and measurable outcomes.
+            Building in production environments with real constraints. Each milestone reflects shipped work, engineering ownership, and measurable outcomes.
           </p>
         </motion.div>
 
@@ -83,7 +83,7 @@ const ImpactMilestones = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="p-5 sm:p-6 rounded-lg border border-primary/15 bg-primary/5"
+          className="p-5 sm:p-6 rounded-2xl border border-border/80 bg-secondary/30"
         >
           <h3 className="text-lg font-semibold text-foreground mb-4">
             What I Bring

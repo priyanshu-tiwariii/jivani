@@ -15,7 +15,8 @@ const MetricsStrip = ({ metrics }: MetricsStripProps) => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.3, delay: index * 0.04 }}
-          className="text-center p-3 sm:p-4 rounded-lg bg-secondary/40 border border-border/40"
+          whileHover={{ y: -2 }}
+          className="text-center p-3 sm:p-4 rounded-xl bg-secondary/35 border border-border/45 shadow-[0_12px_24px_-24px_hsl(var(--foreground)/0.8)]"
         >
           <div className="text-xl sm:text-2xl font-semibold text-primary mb-0.5">
             {metric.value}

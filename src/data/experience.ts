@@ -44,35 +44,49 @@ export interface ImpactMetric {
 }
 
 export const currentRole: CurrentRole = {
-  company: "CRUV",
-  role: "SDE Intern",
-  type: "Startup | Remote",
-  positioning: "Building production-ready features in a fast-paced startup environment where shipping correctly matters",
-  ownership: "Contributing directly to production-facing features that go through senior review and deployment. Working on frontend engineering with focus on translating product requirements into scalable UI components.",
-  technologies: ["React", "TypeScript", "Next.js", "Zustand", "TanStack Router", "REST APIs"],
+  company: "Nagarro",
+  role: "Associate Software Engineer Intern (Full Stack)",
+  type: "Enterprise | Hybrid",
+  positioning: "Contributing to full-stack production engineering in an enterprise environment where reliability, quality, and delivery discipline matter every day",
+  ownership: "Building and improving end-to-end product workflows across UI, APIs, and data interactions. Owning bug resolution and iterative feature delivery with structured reviews and cross-team collaboration.",
+  technologies: [".NET", "C#", "React", "Azure", "REST APIs", "SQL", "Git"],
   featuresBuilt: [
     {
-      name: "Endorsement Feature",
-      description: "Complete user endorsement flow with validation and state management"
+      name: "Full-Stack Workflow Delivery",
+      description: "Delivered end-to-end modules across interface, API integration, and business logic"
     },
     {
-      name: "Insurance Documentation Module",
-      description: "Document handling system with form validation and API integration"
+      name: "Backend + API Improvements",
+      description: "Improved service interactions and data flows for better reliability and consistency"
     },
     {
-      name: "Contact Feature",
-      description: "Production-ready contact functionality for the main website"
+      name: "Production Bug Resolution",
+      description: "Investigated and fixed cross-layer defects through root-cause oriented debugging"
     }
   ],
-  keyLearning: "Frontend issues are often architectural, not visual. Identified and fixed a critical bug where content was not loading due to improper root-level navigation handling, requiring deep trace of routing state and refactoring."
+  keyLearning: "Strong software engineering is less about quick hacks and more about repeatable quality: clear architecture, thoughtful reviews, and predictable delivery."
 };
 
 export const experienceTimeline: ExperienceEntry[] = [
   {
+    id: "nagarro",
+    company: "Nagarro",
+    role: "Associate Software Engineer Intern (Full Stack)",
+    duration: "Apr 2026 - Present",
+    type: "Enterprise | Hybrid",
+    impactContribution: "Contributing to production-facing improvements with a focus on reliable end-to-end user journeys and maintainable full-stack delivery",
+    engineeringResponsibility: "Full-stack engineering across interface implementation, API integrations, service interactions, and defect resolution in a structured review-driven environment",
+    highlights: [
+      "Built end-to-end product modules for active workflows",
+      "Improved API and data reliability for user-facing flows",
+      "Resolved cross-layer production defects through root-cause debugging"
+    ]
+  },
+  {
     id: "cruv",
     company: "CRUV",
     role: "SDE Intern",
-    duration: "Nov 2025 - Present",
+    duration: "Nov 2025 - Mar 2026",
     type: "Startup | Remote",
     impactContribution: "Shipped 3 production features reviewed and deployed by senior engineers, including critical bug fixes in routing architecture",
     engineeringResponsibility: "Frontend development with focus on component architecture, API integration, form validation, and responsive design",
@@ -106,23 +120,23 @@ export const achievements: Achievement[] = [
 ];
 
 export const impactMetrics: ImpactMetric[] = [
-  { value: "3", label: "Production Features", context: "Shipped and deployed" },
+  { value: "2", label: "Professional Roles", context: "Startup + Enterprise" },
+  { value: "3+", label: "Production Features", context: "Shipped across internships" },
   { value: "1", label: "Critical Bug Fixed", context: "Root navigation issue" },
-  { value: "36hrs", label: "Hackathon Finale", context: "Live debugging" },
   { value: "National", label: "SIH Winner", context: "Smart India Hackathon" }
 ];
 
 // What these milestones represent
 export const milestoneProgression = [
   "Learning how to code",
-  "Building systems for users", 
-  "Shipping features in real environments"
+  "Building systems for users",
+  "Shipping in startup and enterprise environments"
 ];
 
 export const demonstratedSkills = [
   "Comfort with production environments",
-  "Understanding of frontend architecture decisions",
+  "Understanding of full-stack architecture decisions",
   "Real-world debugging capability",
   "Ownership over shipped features",
-  "Ability to work under constraints"
+  "Ability to adapt across different engineering cultures"
 ];

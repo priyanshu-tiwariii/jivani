@@ -4,6 +4,21 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
+  base: process.env.VITE_BASE_PATH || "/",
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: "assets/index.js",
+        chunkFileNames: "assets/[name].js",
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith(".css")) {
+            return "assets/index.css";
+          }
+          return "assets/[name][extname]";
+        },
+      },
+    },
+  },
   server: {
     host: "::",
     port: 8080,
